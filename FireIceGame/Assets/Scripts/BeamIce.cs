@@ -8,7 +8,7 @@ public class BeamIce : Beam
     [SerializeField] private GameObject iceBlockPrefab_;
     
     private Timer creationTimer_;
-    private Collider2D previousCollider_;
+    private IceableSurface previousBlock_;
 
 #endregion
 
@@ -23,15 +23,19 @@ public class BeamIce : Beam
 
     protected override void HitRay(RaycastHit2D hit)
     {
-        if (hit.collider != previousCollider_)
+        var iceable = hit.transform.GetComponent<IceableSurface>();
+        if (iceable != previousBlock_)
         {
             StopHit();
-            previousCollider_ = hit.collider;
+            previousBlock_ = iceable;
+        }
+        else if (!iceable)
+        {
+            return;
         }
         if (creationTimer_.Update(Time.deltaTime))
         {
-            var pos = hit.collider.transform.position + new Vector3(hit.normal.x, hit.normal.y, 0f);
-            Instantiate(iceBlockPrefab_, pos, Quaternion.identity);
+            iceable.AddBlock(iceBlockPrefab_);
             creationTimer_.ResetToSurplus();
         }
     }
@@ -39,7 +43,7 @@ public class BeamIce : Beam
     protected override void StopHit()
     {
         creationTimer_.Reset();
-        previousCollider_ = null;
+        previousBlock_ = null;
     }
 
     #endregion

@@ -8,7 +8,7 @@ public class BeamIce : Beam
     [SerializeField] private GameObject iceBlockPrefab_;
     
     private Timer creationTimer_;
-    private IceableSurface previousBlock_;
+    private IceBlock previousBlock_;
 
 #endregion
 
@@ -23,7 +23,7 @@ public class BeamIce : Beam
 
     protected override void HitRay(RaycastHit2D hit)
     {
-        var iceable = hit.transform.GetComponent<IceableSurface>();
+        var iceable = hit.transform.GetComponent<IceBlock>();
         if (iceable != previousBlock_)
         {
             StopHit();
@@ -35,7 +35,7 @@ public class BeamIce : Beam
         }
         if (creationTimer_.Update(Time.deltaTime))
         {
-            iceable.AddBlock(iceBlockPrefab_);
+            iceable.AddBlock(iceBlockPrefab_); // TODO: Fix this
             creationTimer_.ResetToSurplus();
         }
     }

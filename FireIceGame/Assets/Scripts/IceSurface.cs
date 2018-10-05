@@ -1,24 +1,36 @@
 ﻿using UnityEngine;
 
-public class IceableSurface : MonoBehaviour
+public class IceSurface : MonoBehaviour
 {
 #region Variables
 
     [SerializeField] private Vector2 normal_ = new Vector2(-1f, 0f);
+    [SerializeField] private float timeUntilFade = 5f;
+    [SerializeField] private float fadeTime = 1f;
+    
+    private Timer waitTimer;
+    private Timer fadeTimer;
 
-    private IceableSurface next_;
-    private IceableSurface previous_;
-    private IceableSurface head_;
+    private IceBlock next_;
 
 #endregion
 
 #region Properties
 
-    private IceableSurface Tail
+    public Vector2 Normal
+    {
+        get { return normal_; }
+    }
+
+    private IceBlock Tail
     {
         get
         {
-            var tail = this;
+            var tail = next_;
+            if (!tail)
+            {
+                return null;
+            }
             while (tail.next_ != null)
             {
                 tail = tail.next_;
@@ -30,15 +42,25 @@ public class IceableSurface : MonoBehaviour
 
 #endregion
 
-#region Public Methods
+#region Private Methods
+
+    private void Start()
+    {
+        waitTimer = new Timer(timeUntilFade);
+        fadeTimer = new Timer(fadeTime);
+    }
+
+    private void Update()
+    {
+
+    }
 
     public void AddBlock(GameObject blockPrefab)
     {
         var tail = Tail;
         var pos = tail.transform.position + new Vector3(normal_.x, normal_.y, 0f);
         var obj = Instantiate(blockPrefab, pos, Quaternion.identity);
-        var surface = obj.GetComponent<IceableSurface>();
-        surface.normal_ = head_.normal_;
+        var surface = obj.GetComponent<IceBlock>();
         surface.previous_ = tail;
         tail.next_ = surface;
     }
@@ -53,18 +75,6 @@ public class IceableSurface : MonoBehaviour
 
         tail.previous_.next_ = null;
         Destroy(tail.gameObject);
-    }
-
-#endregion
-
-#region Private Methods
-
-    private void Start()
-    {
-        if (!head_)
-        {
-            head_ = this;
-        }
     }
 
 #endregion

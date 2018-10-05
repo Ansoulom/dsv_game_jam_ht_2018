@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 1430721336}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -437,7 +437,7 @@ GameObject:
   - component: {fileID: 2084578943}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -559,7 +559,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fdf299ab9a6af640ac419d726ee5f03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  jumpForce: 100
+  horizontalLeft: Horizontal_p1_left
+  horizontalRight: Horizontal_p1_right
+  verticalRight: Vertical_p1_right
+  jump: Jump_p1
+  maxSpeed: 5
+  accelleration: 10
+  deceleration: 20
+  jumpForce: 200
+  aimDeadZone: 0.05
   groundCheck: {fileID: 455445244}
   aim: {fileID: 882118616}

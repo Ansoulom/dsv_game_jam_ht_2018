@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-guid: 851e9417b5dfec549ac4c645e1553d14
+guid: 318642644b34f014d8db2a49e7dc6e05
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Threat sprites_0
-    21300002: Threat sprites_1
+    21300000: Threat sprites 1_0
+    21300002: Threat sprites 1_1
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -119,13 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Threat sprites_0
+      name: Threat sprites 1_0
       rect:
         serializedVersion: 2
-        x: 292
-        y: 296
-        width: 599
-        height: 1293
+        x: 273
+        y: 276
+        width: 638
+        height: 1333
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,13 +133,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e06347419f464cd4085ef35766fba152
+      spriteID: bdd5a5fa5ee125f4eb7d6456b1b21741
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Threat sprites_1
+      name: Threat sprites 1_1
       rect:
         serializedVersion: 2
         x: 1272
@@ -153,7 +153,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68671f1015e58534ebd64f752ce9102d
+      spriteID: 588e1818b98e11c4ab8e42473fc1ae80
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 1ffaef84af408b54c8f0d0aaeed0e5fe
+    spriteID: 16572e5bc33bd6d47bef011bb62d033a
     vertices: []
     indices: 
     edges: []

@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Killzone : MonoBehaviour {
-    public Transform respawn;
+    public GameObject[] players;
     public Lives lives;
     public float respawnTime = 1f;
 
     private bool respawning;
 
     private void Start () {
+        players = GameObject.FindGameObjectsWithTag("Player");
         lives = FindObjectOfType<Lives>();
     }
     private void OnTriggerEnter2D (Collider2D other) {
@@ -20,13 +21,20 @@ public class Killzone : MonoBehaviour {
             }
             lives.HurtPlayer();
             respawning = true;
-            StartCoroutine(Respawn(other));
+            StartCoroutine(Respawn(other.gameObject));
         }
     }
-    private IEnumerator Respawn (Collider2D player) {
+    private IEnumerator Respawn (GameObject player) {
         yield return new WaitForSeconds(respawnTime);
-        player.transform.position = respawn.position;
+        GameObject otherPlayer;
+        if (GameObject.ReferenceEquals(player, players[0])) {
+            otherPlayer = players[1];
+        }
+        else {
+            otherPlayer = players[0];
+        }
+        player.transform.position = otherPlayer.transform.position;
         respawning = false;
-        player.gameObject.SetActive(true);
+        player.SetActive(true);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public abstract class Beam : MonoBehaviour
@@ -68,7 +69,8 @@ public abstract class Beam : MonoBehaviour
             if (shotPrevFrame_)
             {
                 regCooldownTimer_.Reset();
-                loopSource_.Stop();
+                StartCoroutine(AudioFadeOut(loopSource_, 0.5f));
+                //loopSource_.Stop();
             }
             else
             {
@@ -84,7 +86,8 @@ public abstract class Beam : MonoBehaviour
 
         if (!hitBlock_)
         {
-            loopSourceHit_.Stop();
+            StartCoroutine(AudioFadeOut(loopSourceHit_, 0.5f));
+            //loopSourceHit_.Stop();
         }
         else
         {
@@ -94,6 +97,19 @@ public abstract class Beam : MonoBehaviour
             }
         }
 	}
+
+    private IEnumerator AudioFadeOut (AudioSource audioSource, float FadeTime) {
+        float startVolume = audioSource.volume;
+
+        while (audioSource.volume > 0) {
+            audioSource.volume -= startVolume * Time.deltaTime / FadeTime;
+
+            yield return null;
+        }
+
+        audioSource.Stop();
+        audioSource.volume = startVolume;
+    }
 
     private void ProcessInput()
     {

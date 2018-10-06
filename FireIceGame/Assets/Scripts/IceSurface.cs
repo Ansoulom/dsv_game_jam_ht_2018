@@ -10,6 +10,7 @@ public class IceSurface : IceBlock
     [SerializeField] private float meltTime_ = 1f;
     [SerializeField] private float iceTime_;
     [SerializeField] private float iceBlockWidth_ = 1.8f;
+    [SerializeField] private AudioSource audioSource_;
 
     private Timer waitTimer_;
     protected Timer meltTimer_;
@@ -108,6 +109,8 @@ public class IceSurface : IceBlock
         surface.Head = this;
         surface.Previous = tail;
         tail.Next = surface;
+
+        audioSource_.Play();
     }
 
     protected void RemoveBlock()

@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61837090685273962}
   m_Layer: 0
   m_Name: Ground_Tile_Edge_Right
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,7 +57,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.05, y: 3.83}
+    oldSize: {x: 4.0299997, y: 3.83}
     newSize: {x: 4.05, y: 3.83}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

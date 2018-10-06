@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public abstract class Beam : MonoBehaviour
 {
@@ -13,11 +14,32 @@ public abstract class Beam : MonoBehaviour
     [SerializeField] private float maxEnergy_;
     [SerializeField] private float energyDrainPerSec_;
     [SerializeField] private float energyRegPerSec_;
+    [SerializeField] private float regenerationCooldown_ = 1f;
     [SerializeField] private LayerMask raycastMask_;
+    [SerializeField] private AudioSource loopSource_;
+    [SerializeField] private AudioSource loopSourceHit_;
 
     private Vector2 aimDirection_;
     private bool shooting_;
+    private bool shotPrevFrame_;
     private float energy_;
+    private Timer regCooldownTimer_;
+    private bool hitBlock_;
+
+#endregion
+
+#region Properties
+
+    public float MaxEnergy
+    {
+        get { return maxEnergy_; }
+    }
+
+#endregion
+
+#region Events
+
+    public event Action<float> OnEnergyChanged = delegate {}; 
 
 #endregion
 
@@ -26,9 +48,10 @@ public abstract class Beam : MonoBehaviour
     protected virtual void Start()
     {
         energy_ = maxEnergy_;
+        regCooldownTimer_ = new Timer(regenerationCooldown_, true);
     }
 
-    protected abstract void HitRay(RaycastHit2D hit);
+    protected abstract void HitRay(IceBlock hit);
 
 #endregion
     
@@ -38,6 +61,36 @@ public abstract class Beam : MonoBehaviour
         if (CheckBeam())
         {
             ShootBeam();
+        }
+        else
+        {
+            if (shotPrevFrame_)
+            {
+                regCooldownTimer_.Reset();
+                loopSource_.Stop();
+            }
+            else
+            {
+                regCooldownTimer_.Update(Time.deltaTime);
+                if (regCooldownTimer_.IsDone)
+                {
+                    energy_ = Mathf.Min(maxEnergy_, energy_ + energyRegPerSec_ * Time.deltaTime);
+                    OnEnergyChanged(energy_);
+                }
+            }
+            shotPrevFrame_ = false;
+        }
+
+        if (!hitBlock_)
+        {
+            loopSourceHit_.Stop();
+        }
+        else
+        {
+            if (!loopSourceHit_.isPlaying)
+            {
+                loopSourceHit_.Play();
+            }
         }
 	}
 
@@ -61,11 +114,24 @@ public abstract class Beam : MonoBehaviour
 
     private void ShootBeam()
     {
+        energy_ = Mathf.Max(0, energy_ - energyDrainPerSec_ * Time.deltaTime);
+        OnEnergyChanged(energy_);
         beamParent_.eulerAngles = new Vector3(0f, 0f, Mathf.Atan2(aimDirection_.y, aimDirection_.x) * Mathf.Rad2Deg);
         var hit = Physics2D.Raycast(beamParent_.position, aimDirection_, range_, raycastMask_);
         if (hit.collider)
         {
-            HitRay(hit);
+            var block = hit.collider.GetComponent<IceBlock>();
+            if (block)
+            {
+                HitRay(block);
+                hitBlock_ = true;
+            }
+        }
+
+        shotPrevFrame_ = true;
+        if (!loopSource_.isPlaying)
+        {
+            loopSource_.Play();
         }
     }
 }

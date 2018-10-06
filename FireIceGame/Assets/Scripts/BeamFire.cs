@@ -1,16 +1,10 @@
-﻿using UnityEngine;
-
-public class BeamFire : Beam
+﻿public class BeamFire : Beam
 {
 #region Protected Method
 
-    protected override void HitRay(RaycastHit2D hit)
+    protected override void HitRay(IceBlock hit)
     {
-        var iceable = hit.transform.GetComponent<IceBlock>();
-        if (iceable)
-        {
-            iceable.Head.TickFire();
-        }
+        hit.Head.TickFire();
     }
 
 #endregion

@@ -9,6 +9,7 @@ public class IceSurface : IceBlock
     [SerializeField] private float timeUntilMelt_ = 5f;
     [SerializeField] private float meltTime_ = 1f;
     [SerializeField] private float iceTime_;
+    [SerializeField] private float iceBlockWidth_ = 1.8f;
 
     private Timer waitTimer_;
     protected Timer meltTimer_;
@@ -101,7 +102,7 @@ public class IceSurface : IceBlock
     private void AddBlock(GameObject blockPrefab)
     {
         var tail = Tail;
-        var pos = tail.transform.position + new Vector3(normal_.x, normal_.y, 0f);
+        var pos = tail.transform.position + iceBlockWidth_ * new Vector3(normal_.x, normal_.y, 0f);
         var obj = Instantiate(blockPrefab, pos, Quaternion.identity);
         var surface = obj.GetComponent<IceBlock>();
         surface.Head = this;

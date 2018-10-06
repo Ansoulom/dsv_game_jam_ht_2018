@@ -107,12 +107,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da41525cc43d445ea8b641ba0e8944ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  next_: {fileID: 0}
+  previous_: {fileID: 0}
+  head_: {fileID: 0}
   normal_: {x: -1, y: 0}
-  iceBlockPrefab_: {fileID: 1256870179773344, guid: 71bb183931489594291d984461a3f03c,
+  iceBlockPrefab_: {fileID: 1851243174753784, guid: 76866171194817648b614634748d8af2,
     type: 2}
   timeUntilMelt_: 2
   meltTime_: 0.3
   iceTime_: 0.3
+  iceBlockWidth_: 1.8
 --- !u!212 &212174510359940308
 SpriteRenderer:
   m_ObjectHideFlags: 1

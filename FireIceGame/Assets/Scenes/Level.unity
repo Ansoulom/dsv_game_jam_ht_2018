@@ -266,6 +266,7 @@ MonoBehaviour:
   meltTime_: 0.3
   iceTime_: 0.3
   iceBlockWidth_: 1.8
+  audioSource_: {fileID: 0}
 --- !u!1001 &19714828
 Prefab:
   m_ObjectHideFlags: 0
@@ -9325,6 +9326,127 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4985678333025068, guid: b0f12c750d091fd4480babe347bf2f4e,
     type: 2}
   m_PrefabInternal: {fileID: 930733598}
+--- !u!1 &930733600 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1147091062393478, guid: b0f12c750d091fd4480babe347bf2f4e,
+    type: 2}
+  m_PrefabInternal: {fileID: 930733598}
+--- !u!82 &930733601
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 930733600}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: c9ff67d2e4a32cf4eac05a8d8f528b38, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &930733602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 930733600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c8440b1145bf34a889dbef73c684c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  next_: {fileID: 0}
+  previous_: {fileID: 0}
+  head_: {fileID: 0}
+  normal_: {x: -1, y: 0}
+  iceBlockPrefab_: {fileID: 0}
+  timeUntilMelt_: 5
+  meltTime_: 1
+  iceTime_: 0
+  iceBlockWidth_: 1.8
+  audioSource_: {fileID: 930733601}
 --- !u!1001 &931173570
 Prefab:
   m_ObjectHideFlags: 0
@@ -12304,6 +12426,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawn: {fileID: 48576462}
+  lives: {fileID: 0}
+  respawnTime: 1
 --- !u!61 &1251799962
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14873,6 +14997,7 @@ MonoBehaviour:
   meltTime_: 0.3
   iceTime_: 0.3
   iceBlockWidth_: 1.8
+  audioSource_: {fileID: 0}
 --- !u!1001 &1503656774
 Prefab:
   m_ObjectHideFlags: 0
@@ -19987,6 +20112,7 @@ MonoBehaviour:
   meltTime_: 0.5
   iceTime_: 0
   iceBlockWidth_: 1.8
+  audioSource_: {fileID: 0}
 --- !u!4 &1961857104
 Transform:
   m_ObjectHideFlags: 0
@@ -20591,6 +20717,7 @@ MonoBehaviour:
   meltTime_: 0.3
   iceTime_: 0.3
   iceBlockWidth_: 1.8
+  audioSource_: {fileID: 0}
 --- !u!1001 &2020652940
 Prefab:
   m_ObjectHideFlags: 0

@@ -1,39 +1,33 @@
 ﻿using UnityEngine;
 
-public class IceSurface : MonoBehaviour
+public class IceSurface : IceBlock
 {
 #region Variables
 
     [SerializeField] private Vector2 normal_ = new Vector2(-1f, 0f);
-    [SerializeField] private float timeUntilFade = 5f;
-    [SerializeField] private float fadeTime = 1f;
-    
-    private Timer waitTimer;
-    private Timer fadeTimer;
+    [SerializeField] private GameObject iceBlockPrefab_;
+    [SerializeField] private float timeUntilMelt_ = 5f;
+    [SerializeField] private float meltTime_ = 1f;
+    [SerializeField] private float iceTime_;
 
-    private IceBlock next_;
+    private Timer waitTimer_;
+    private Timer meltTimer_;
+    private Timer iceTimer_;
+    private bool fireTick_;
+    private bool iceTick_;
 
 #endregion
 
 #region Properties
-
-    public Vector2 Normal
-    {
-        get { return normal_; }
-    }
-
+    
     private IceBlock Tail
     {
         get
         {
-            var tail = next_;
-            if (!tail)
+            IceBlock tail = this;
+            while (tail.Next != null)
             {
-                return null;
-            }
-            while (tail.next_ != null)
-            {
-                tail = tail.next_;
+                tail = tail.Next;
             }
 
             return tail;
@@ -42,38 +36,88 @@ public class IceSurface : MonoBehaviour
 
 #endregion
 
+#region Public Methods
+
+    public void TickIce()
+    {
+        iceTick_ = true;
+    }
+
+    public void TickFire()
+    {
+        fireTick_ = true;
+    }
+
+#endregion
+
 #region Private Methods
 
     private void Start()
     {
-        waitTimer = new Timer(timeUntilFade);
-        fadeTimer = new Timer(fadeTime);
+        iceTimer_ = new Timer(iceTime_);
+        waitTimer_ = new Timer(timeUntilMelt_);
+        meltTimer_ = new Timer(meltTime_);
+        Head = this;
     }
 
     private void Update()
     {
+        if (iceTick_)
+        {
+            waitTimer_.Reset();
+            if (iceTimer_.Update(Time.deltaTime))
+            {
+                AddBlock(iceBlockPrefab_);
+                iceTimer_.ResetToSurplus();
+            }
 
+            if (!fireTick_)
+            {
+                meltTimer_.Reset();
+            }
+        }
+        else
+        {
+            iceTimer_.Reset();
+        }
+        if (!fireTick_ && !iceTick_)
+        {
+            waitTimer_.Update(Time.deltaTime);
+        }
+        if (fireTick_)
+        {
+            waitTimer_.Finish();
+        }
+        if (waitTimer_.IsDone && meltTimer_.Update(Time.deltaTime))
+        {
+            RemoveBlock();
+            meltTimer_.Reset();
+        }
+
+        fireTick_ = false;
+        iceTick_ = false;
     }
 
-    public void AddBlock(GameObject blockPrefab)
+    private void AddBlock(GameObject blockPrefab)
     {
         var tail = Tail;
         var pos = tail.transform.position + new Vector3(normal_.x, normal_.y, 0f);
         var obj = Instantiate(blockPrefab, pos, Quaternion.identity);
         var surface = obj.GetComponent<IceBlock>();
-        surface.previous_ = tail;
-        tail.next_ = surface;
+        surface.Head = this;
+        surface.Previous = tail;
+        tail.Next = surface;
     }
 
-    public void RemoveBlock()
+    private void RemoveBlock()
     {
         var tail = Tail;
-        if (tail.previous_ == null)
+        if (tail.Previous == null)
         {
             return;
         }
 
-        tail.previous_.next_ = null;
+        tail.Previous.Next = null;
         Destroy(tail.gameObject);
     }
 

@@ -4,26 +4,30 @@ public class IceBlock : MonoBehaviour
 {
 #region Variables
     
-    public IceBlock next_;
-    public IceBlock previous_;
+    private IceBlock next_;
+    private IceBlock previous_;
     private IceSurface head_;
 
 #endregion
 
 #region Properties
-
-    private IceBlock Tail
+    
+    public IceSurface Head
     {
-        get
-        {
-            var tail = this;
-            while (tail.next_ != null)
-            {
-                tail = tail.next_;
-            }
+        get { return head_; }
+        set { head_ = value; }
+    }
 
-            return tail;
-        }
+    public IceBlock Next
+    {
+        get { return next_; }
+        set { next_ = value; }
+    }
+
+    public IceBlock Previous
+    {
+        get { return previous_; }
+        set { previous_ = value; }
     }
 
 #endregion

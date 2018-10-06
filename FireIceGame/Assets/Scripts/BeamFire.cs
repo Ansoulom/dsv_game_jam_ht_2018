@@ -1,18 +1,17 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class BeamFire : MonoBehaviour
+public class BeamFire : Beam
 {
+#region Protected Method
 
-    // Use this for initialization
-    void Start()
+    protected override void HitRay(RaycastHit2D hit)
     {
-
+        var iceable = hit.transform.GetComponent<IceBlock>();
+        if (iceable)
+        {
+            iceable.Head.TickFire();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+#endregion
 }

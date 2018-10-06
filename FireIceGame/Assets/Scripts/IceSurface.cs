@@ -11,10 +11,10 @@ public class IceSurface : IceBlock
     [SerializeField] private float iceTime_;
 
     private Timer waitTimer_;
-    private Timer meltTimer_;
+    protected Timer meltTimer_;
     private Timer iceTimer_;
-    private bool fireTick_;
-    private bool iceTick_;
+    protected bool fireTick_;
+    protected bool iceTick_;
 
 #endregion
 
@@ -60,7 +60,7 @@ public class IceSurface : IceBlock
         Head = this;
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         if (iceTick_)
         {
@@ -109,7 +109,7 @@ public class IceSurface : IceBlock
         tail.Next = surface;
     }
 
-    private void RemoveBlock()
+    protected void RemoveBlock()
     {
         var tail = Tail;
         if (tail.Previous == null)

@@ -21,7 +21,8 @@ GameObject:
   - component: {fileID: 4550684409194398}
   - component: {fileID: 212087566858862938}
   - component: {fileID: 61544451288276692}
-  - component: {fileID: 60844530502948130}
+  - component: {fileID: 114209658984380830}
+  - component: {fileID: 60487549114292588}
   m_Layer: 0
   m_Name: Spike_Single
   m_TagString: Untagged
@@ -42,7 +43,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &60844530502948130
+--- !u!60 &60487549114292588
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -51,7 +52,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -168,6 +169,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 9.745119, y: 7.9763856}
   m_EdgeRadius: 0
+--- !u!114 &114209658984380830
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1385989875265436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c90e908b78b71949b08d59dabd2e9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawn: {fileID: 0}
 --- !u!212 &212087566858862938
 SpriteRenderer:
   m_ObjectHideFlags: 1

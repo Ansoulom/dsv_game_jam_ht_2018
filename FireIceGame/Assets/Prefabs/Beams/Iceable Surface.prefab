@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4785427349646632}
   - component: {fileID: 61864119028512392}
   - component: {fileID: 114580554381800788}
+  - component: {fileID: 82240447055658660}
   m_Layer: 0
   m_Name: Iceable Surface
   m_TagString: Untagged
@@ -96,6 +97,101 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.12197924, y: 1}
   m_EdgeRadius: 0
+--- !u!82 &82240447055658660
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1048627542577342}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &114580554381800788
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -107,12 +203,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da41525cc43d445ea8b641ba0e8944ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  next_: {fileID: 0}
+  previous_: {fileID: 0}
+  head_: {fileID: 0}
   normal_: {x: -1, y: 0}
-  iceBlockPrefab_: {fileID: 1256870179773344, guid: 71bb183931489594291d984461a3f03c,
+  iceBlockPrefab_: {fileID: 1851243174753784, guid: 76866171194817648b614634748d8af2,
     type: 2}
   timeUntilMelt_: 2
   meltTime_: 0.3
   iceTime_: 0.3
+  iceBlockWidth_: 1.8
+  audioSource_: {fileID: 82240447055658660}
 --- !u!212 &212174510359940308
 SpriteRenderer:
   m_ObjectHideFlags: 1

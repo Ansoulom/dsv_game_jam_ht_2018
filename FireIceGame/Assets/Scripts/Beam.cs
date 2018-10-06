@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public abstract class Beam : MonoBehaviour
 {
@@ -21,6 +22,21 @@ public abstract class Beam : MonoBehaviour
     private bool shotPrevFrame_;
     private float energy_;
     private Timer regCooldownTimer_;
+
+#endregion
+
+#region Properties
+
+    public float MaxEnergy
+    {
+        get { return maxEnergy_; }
+    }
+
+#endregion
+
+#region Events
+
+    public event Action<float> OnEnergyChanged = delegate {}; 
 
 #endregion
 
@@ -55,6 +71,7 @@ public abstract class Beam : MonoBehaviour
                 if (regCooldownTimer_.IsDone)
                 {
                     energy_ = Mathf.Min(maxEnergy_, energy_ + energyRegPerSec_ * Time.deltaTime);
+                    OnEnergyChanged(energy_);
                 }
             }
             shotPrevFrame_ = false;
@@ -82,6 +99,7 @@ public abstract class Beam : MonoBehaviour
     private void ShootBeam()
     {
         energy_ = Mathf.Max(0, energy_ - energyDrainPerSec_ * Time.deltaTime);
+        OnEnergyChanged(energy_);
         beamParent_.eulerAngles = new Vector3(0f, 0f, Mathf.Atan2(aimDirection_.y, aimDirection_.x) * Mathf.Rad2Deg);
         var hit = Physics2D.Raycast(beamParent_.position, aimDirection_, range_, raycastMask_);
         if (hit.collider)

@@ -16,12 +16,15 @@ public abstract class Beam : MonoBehaviour
     [SerializeField] private float energyRegPerSec_;
     [SerializeField] private float regenerationCooldown_ = 1f;
     [SerializeField] private LayerMask raycastMask_;
+    [SerializeField] private AudioSource loopSource_;
+    [SerializeField] private AudioSource loopSourceHit_;
 
     private Vector2 aimDirection_;
     private bool shooting_;
     private bool shotPrevFrame_;
     private float energy_;
     private Timer regCooldownTimer_;
+    private bool hitBlock_;
 
 #endregion
 
@@ -48,7 +51,7 @@ public abstract class Beam : MonoBehaviour
         regCooldownTimer_ = new Timer(regenerationCooldown_, true);
     }
 
-    protected abstract void HitRay(RaycastHit2D hit);
+    protected abstract void HitRay(IceBlock hit);
 
 #endregion
     
@@ -64,6 +67,7 @@ public abstract class Beam : MonoBehaviour
             if (shotPrevFrame_)
             {
                 regCooldownTimer_.Reset();
+                loopSource_.Stop();
             }
             else
             {
@@ -75,6 +79,18 @@ public abstract class Beam : MonoBehaviour
                 }
             }
             shotPrevFrame_ = false;
+        }
+
+        if (!hitBlock_)
+        {
+            loopSourceHit_.Stop();
+        }
+        else
+        {
+            if (!loopSourceHit_.isPlaying)
+            {
+                loopSourceHit_.Play();
+            }
         }
 	}
 
@@ -104,9 +120,18 @@ public abstract class Beam : MonoBehaviour
         var hit = Physics2D.Raycast(beamParent_.position, aimDirection_, range_, raycastMask_);
         if (hit.collider)
         {
-            HitRay(hit);
+            var block = hit.collider.GetComponent<IceBlock>();
+            if (block)
+            {
+                HitRay(block);
+                hitBlock_ = true;
+            }
         }
 
         shotPrevFrame_ = true;
+        if (!loopSource_.isPlaying)
+        {
+            loopSource_.Play();
+        }
     }
 }

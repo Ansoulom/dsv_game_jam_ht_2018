@@ -58,6 +58,7 @@ public abstract class Beam : MonoBehaviour
     private void Update ()
     {
 		ProcessInput();
+        hitBlock_ = false;
         if (CheckBeam())
         {
             ShootBeam();

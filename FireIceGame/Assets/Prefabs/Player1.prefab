@@ -277,7 +277,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 11de711a9bc60754ea523aca3ca9964d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d7fdf1f14f14d8741a058e9d57e50f5b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -473,10 +473,10 @@ MonoBehaviour:
   horizontalRight: Horizontal_p1_right
   verticalRight: Vertical_p1_right
   jump: Jump_p1
-  maxSpeed: 5
-  accelleration: 10
+  maxSpeed: 10
+  accelleration: 15
   deceleration: 20
-  jumpForce: 200
+  jumpForce: 800
   aimDeadZone: 0.05
   groundCheck: {fileID: 4322781327750728}
   aim: {fileID: 4663254360916810}

@@ -473,10 +473,10 @@ MonoBehaviour:
   horizontalRight: Horizontal_p2_right
   verticalRight: Vertical_p2_right
   jump: Jump_p2
-  maxSpeed: 5
-  accelleration: 10
+  maxSpeed: 10
+  accelleration: 15
   deceleration: 20
-  jumpForce: 200
+  jumpForce: 800
   aimDeadZone: 0.05
   groundCheck: {fileID: 4291084190223178}
   aim: {fileID: 4874042252095072}

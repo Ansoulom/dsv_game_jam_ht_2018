@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61264473495536854}
   - component: {fileID: 114170103931830484}
   m_Layer: 0
-  m_Name: Ice Block
+  m_Name: Ice Pillar
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,6 +78,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 318678aea99599749971d0ace992de9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  next_: {fileID: 0}
+  previous_: {fileID: 0}
+  head_: {fileID: 0}
 --- !u!212 &212896622727313122
 SpriteRenderer:
   m_ObjectHideFlags: 1

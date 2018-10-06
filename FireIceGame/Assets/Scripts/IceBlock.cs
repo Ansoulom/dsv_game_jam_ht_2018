@@ -4,9 +4,9 @@ public class IceBlock : MonoBehaviour
 {
 #region Variables
     
-    private IceBlock next_;
-    private IceBlock previous_;
-    private IceSurface head_;
+    [SerializeField] private IceBlock next_;
+    [SerializeField] private IceBlock previous_;
+    [SerializeField] private IceSurface head_;
 
 #endregion
 

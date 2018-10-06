@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Killzone : MonoBehaviour {
-    public GameObject[] players;
+    [HideInInspector] public GameObject[] players;
     public Lives lives;
     public float respawnTime = 1f;
 

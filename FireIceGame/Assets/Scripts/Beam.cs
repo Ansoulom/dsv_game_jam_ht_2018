@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public abstract class Beam : MonoBehaviour
@@ -7,7 +8,7 @@ public abstract class Beam : MonoBehaviour
 
     [SerializeField] private float range_;
     [SerializeField] private Transform beamParent_;
-    [SerializeField] private ParticleSystem particleSystem_;
+    [SerializeField] private Transform particleSystem_;
     [SerializeField] private string horizontalInput_;
     [SerializeField] private string verticalInput_;
     [SerializeField] private float inputThreshold_;
@@ -68,7 +69,8 @@ public abstract class Beam : MonoBehaviour
             if (shotPrevFrame_)
             {
                 regCooldownTimer_.Reset();
-                loopSource_.Stop();
+                StartCoroutine(AudioFadeOut(loopSource_, 0.5f));
+                //loopSource_.Stop();
             }
             else
             {
@@ -84,7 +86,8 @@ public abstract class Beam : MonoBehaviour
 
         if (!hitBlock_)
         {
-            loopSourceHit_.Stop();
+            StartCoroutine(AudioFadeOut(loopSourceHit_, 0.5f));
+            //loopSourceHit_.Stop();
         }
         else
         {
@@ -94,6 +97,19 @@ public abstract class Beam : MonoBehaviour
             }
         }
 	}
+
+    private IEnumerator AudioFadeOut (AudioSource audioSource, float FadeTime) {
+        float startVolume = audioSource.volume;
+
+        while (audioSource.volume > 0) {
+            audioSource.volume -= startVolume * Time.deltaTime / FadeTime;
+
+            yield return null;
+        }
+
+        audioSource.Stop();
+        audioSource.volume = startVolume;
+    }
 
     private void ProcessInput()
     {
@@ -107,8 +123,11 @@ public abstract class Beam : MonoBehaviour
     private bool CheckBeam()
     {
         var shouldShoot = shooting_ && energy_ > 0f;
-        var emission = particleSystem_.emission;
-        emission.enabled = shouldShoot;
+        foreach (var particles in particleSystem_.GetComponentsInChildren<ParticleSystem>())
+        {
+            var emission = particles.emission;
+            emission.enabled = shouldShoot;
+        }
 
         return shouldShoot;
     }

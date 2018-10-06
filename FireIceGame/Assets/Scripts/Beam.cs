@@ -30,8 +30,6 @@ public abstract class Beam : MonoBehaviour
 
     protected abstract void HitRay(RaycastHit2D hit);
 
-    protected abstract void StopHit();
-
 #endregion
     
     private void Update ()
@@ -41,15 +39,11 @@ public abstract class Beam : MonoBehaviour
         {
             ShootBeam();
         }
-        else
-        {
-            StopHit();
-        }
 	}
 
     private void ProcessInput()
     {
-        var inputDir = new Vector2(Input.GetAxis(horizontalInput_), -Input.GetAxis(verticalInput_));
+        var inputDir = new Vector2(Input.GetAxis(horizontalInput_), Input.GetAxis(verticalInput_));
 
         aimDirection_ = inputDir.normalized;
         
@@ -72,10 +66,6 @@ public abstract class Beam : MonoBehaviour
         if (hit.collider)
         {
             HitRay(hit);
-        }
-        else
-        {
-            StopHit();
         }
     }
 }

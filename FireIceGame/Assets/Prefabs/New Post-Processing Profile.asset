@@ -103,7 +103,7 @@ MonoBehaviour:
         intensity: 0.5
         threshold: 1.1
         softKnee: 0.726
-        radius: 2.85
+        radius: 4.85
         antiFlicker: 0
       lensDirt:
         texture: {fileID: 0}
@@ -310,12 +310,12 @@ MonoBehaviour:
       spectralTexture: {fileID: 0}
       intensity: 0.28
   grain:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       colored: 1
-      intensity: 0.5
-      size: 1
-      luminanceContribution: 0.8
+      intensity: 0.26
+      size: 0.5
+      luminanceContribution: 1
   vignette:
     m_Enabled: 1
     m_Settings:

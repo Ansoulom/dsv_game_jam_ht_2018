@@ -5622,7 +5622,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1953316793390128, guid: 4ff42b6ab50d48543a2d493b18845bc7, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ff42b6ab50d48543a2d493b18845bc7, type: 2}
@@ -5710,7 +5710,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1308551508369546, guid: 67ac3e196be6c254484e09eebbcaebc6, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67ac3e196be6c254484e09eebbcaebc6, type: 2}
@@ -6350,8 +6350,8 @@ ParticleSystemRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b5387d3c2ba98fc44a0f5744f94ce48c, type: 2}
+  - {fileID: 2100000, guid: f53f1a24bb4ef8f4d879ea7b3a5197e5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6378,7 +6378,7 @@ ParticleSystemRenderer:
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
-  m_SortingFudge: 0
+  m_SortingFudge: 1
   m_NormalDirection: 1
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
@@ -6962,7 +6962,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 0.00002
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -7660,7 +7660,7 @@ ParticleSystem:
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
   UVModule:
-    enabled: 0
+    enabled: 1
     mode: 0
     frameOverTime:
       serializedVersion: 2
@@ -7768,8 +7768,8 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    tilesX: 1
-    tilesY: 1
+    tilesX: 10
+    tilesY: 5
     animationType: 0
     rowIndex: 0
     cycles: 1
@@ -9792,10 +9792,10 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 3
-    type: 0
-    collisionMode: 0
+    type: 1
+    collisionMode: 1
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
     multiplyColliderForceByParticleSpeed: 0
@@ -9862,7 +9862,7 @@ ParticleSystem:
     m_Bounce:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -11370,7 +11370,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1852287198342774, guid: 30999435f28baed4bb716a162499b9d0, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30999435f28baed4bb716a162499b9d0, type: 2}
@@ -11602,7 +11602,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1801750242257054, guid: eef96873d8c27c14fb952da3f5696c23, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eef96873d8c27c14fb952da3f5696c23, type: 2}
@@ -11878,7 +11878,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1640371932432402, guid: a9d2001d54b2de44fa4457d84d85eff8, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9d2001d54b2de44fa4457d84d85eff8, type: 2}

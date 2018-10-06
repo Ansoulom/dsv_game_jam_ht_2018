@@ -13,11 +13,14 @@ public abstract class Beam : MonoBehaviour
     [SerializeField] private float maxEnergy_;
     [SerializeField] private float energyDrainPerSec_;
     [SerializeField] private float energyRegPerSec_;
+    [SerializeField] private float regenerationCooldown_ = 1f;
     [SerializeField] private LayerMask raycastMask_;
 
     private Vector2 aimDirection_;
     private bool shooting_;
+    private bool shotPrevFrame_;
     private float energy_;
+    private Timer regCooldownTimer_;
 
 #endregion
 
@@ -26,6 +29,7 @@ public abstract class Beam : MonoBehaviour
     protected virtual void Start()
     {
         energy_ = maxEnergy_;
+        regCooldownTimer_ = new Timer(regenerationCooldown_, true);
     }
 
     protected abstract void HitRay(RaycastHit2D hit);
@@ -38,6 +42,22 @@ public abstract class Beam : MonoBehaviour
         if (CheckBeam())
         {
             ShootBeam();
+        }
+        else
+        {
+            if (shotPrevFrame_)
+            {
+                regCooldownTimer_.Reset();
+            }
+            else
+            {
+                regCooldownTimer_.Update(Time.deltaTime);
+                if (regCooldownTimer_.IsDone)
+                {
+                    energy_ = Mathf.Min(maxEnergy_, energy_ + energyRegPerSec_ * Time.deltaTime);
+                }
+            }
+            shotPrevFrame_ = false;
         }
 	}
 
@@ -61,11 +81,14 @@ public abstract class Beam : MonoBehaviour
 
     private void ShootBeam()
     {
+        energy_ = Mathf.Max(0, energy_ - energyDrainPerSec_ * Time.deltaTime);
         beamParent_.eulerAngles = new Vector3(0f, 0f, Mathf.Atan2(aimDirection_.y, aimDirection_.x) * Mathf.Rad2Deg);
         var hit = Physics2D.Raycast(beamParent_.position, aimDirection_, range_, raycastMask_);
         if (hit.collider)
         {
             HitRay(hit);
         }
+
+        shotPrevFrame_ = true;
     }
 }

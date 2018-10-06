@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4901051868436414}
   - component: {fileID: 198047173983439120}
   - component: {fileID: 199382351328757890}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle SystemFire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4348773461935130}
   - component: {fileID: 212618131768752450}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4874042252095072}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Aim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4349891633722902}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BeamParentFire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,7 +82,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4291084190223178}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Groundcheck
   m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
@@ -98,7 +98,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4546917803845322}
   - component: {fileID: 114780840300216574}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FireBeam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 61918837744935200}
   - component: {fileID: 50935173670340570}
   - component: {fileID: 114497354860799534}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player2
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -308,9 +308,10 @@ MonoBehaviour:
   maxEnergy_: 100
   energyDrainPerSec_: 10
   energyRegPerSec_: 10
+  regenerationCooldown_: 1
   raycastMask_:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1
 --- !u!198 &198047173983439120
 ParticleSystem:
   m_ObjectHideFlags: 1

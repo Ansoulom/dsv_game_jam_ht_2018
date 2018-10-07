@@ -992,7 +992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e556dd14bc391140bcff43b32843c6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range_: 13
+  range_: 15
   beamParent_: {fileID: 4349891633722902}
   particleSystem_: {fileID: 4658976477479916}
   horizontalInput_: Horizontal_p2_right

@@ -899,7 +899,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebfd42b1469b86e449af811daea2b799, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range_: 13
+  range_: 15
   beamParent_: {fileID: 4438011798698698}
   particleSystem_: {fileID: 4814970321105650}
   horizontalInput_: Horizontal_p1_right

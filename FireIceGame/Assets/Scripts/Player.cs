@@ -66,7 +66,7 @@ public class Player : MonoBehaviour {
 
         //Jump
         grounded = IsGrounded();
-        if (Input.GetButtonDown(jump) && grounded/* && !airborne*/) {
+        if (Input.GetButtonDown(jump) && grounded && !airborne) {
             rb2d.AddForce(new Vector2(0, jumpForce));
             airborne = true;
             oneShotSource_.PlayOneShot(jumpClip_);

@@ -1008,9 +1008,9 @@ MonoBehaviour:
   verticalInput_: Vertical_p1_right
   inputThreshold_: 0.2
   maxEnergy_: 100
-  energyDrainPerSec_: 10
-  energyRegPerSec_: 10
-  regenerationCooldown_: 1
+  energyDrainPerSec_: 50
+  energyRegPerSec_: 40
+  regenerationCooldown_: 0.6
   raycastMask_:
     serializedVersion: 2
     m_Bits: 1

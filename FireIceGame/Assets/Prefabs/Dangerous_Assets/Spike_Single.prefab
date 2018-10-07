@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4550684409194398}
   - component: {fileID: 212087566858862938}
-  - component: {fileID: 61544451288276692}
   - component: {fileID: 114209658984380830}
   - component: {fileID: 60487549114292588}
   m_Layer: 0
@@ -144,31 +143,6 @@ PolygonCollider2D:
       - {x: -0.24777354, y: -4.24625}
       - {x: 0.053007726, y: -3.617344}
       - {x: 0.27175775, y: -3.166172}
---- !u!61 &61544451288276692
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1385989875265436}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0774405, y: -0.28180766}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 9.900001, y: 8.540001}
-    newSize: {x: 9.900001, y: 8.540001}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 9.745119, y: 7.9763856}
-  m_EdgeRadius: 0
 --- !u!114 &114209658984380830
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -180,7 +154,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c90e908b78b71949b08d59dabd2e9a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawn: {fileID: 0}
+  players: []
+  lives: {fileID: 0}
+  respawnTime: 1
 --- !u!212 &212087566858862938
 SpriteRenderer:
   m_ObjectHideFlags: 1

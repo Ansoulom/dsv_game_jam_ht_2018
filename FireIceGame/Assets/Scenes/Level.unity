@@ -15932,7 +15932,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4256595456189276, guid: 12f59c432d840a24a929ef49448762c6, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -3.98
+      value: 96.63
       objectReference: {fileID: 0}
     - target: {fileID: 4256595456189276, guid: 12f59c432d840a24a929ef49448762c6, type: 2}
       propertyPath: m_LocalPosition.y
@@ -24660,7 +24660,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4561700770693696, guid: efc8ec141302cd34c865c7fe60f21f0f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -5.7999983
+      value: 94.81
       objectReference: {fileID: 0}
     - target: {fileID: 4561700770693696, guid: efc8ec141302cd34c865c7fe60f21f0f, type: 2}
       propertyPath: m_LocalPosition.y
@@ -35578,6 +35578,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1904231472}
   - component: {fileID: 1904231473}
+  - component: {fileID: 1904231475}
+  - component: {fileID: 1904231474}
   m_Layer: 0
   m_Name: goal_0
   m_TagString: Untagged
@@ -35644,6 +35646,43 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1904231474
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1904231471}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 12.190001, y: 13.050001}
+    newSize: {x: 12.190001, y: 13.050001}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 12.190001, y: 13.050001}
+  m_EdgeRadius: 0
+--- !u!114 &1904231475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1904231471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191e1212dcc3cbf4aa20ccfb79507e27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  players: []
 --- !u!1001 &1906094446
 Prefab:
   m_ObjectHideFlags: 0

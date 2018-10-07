@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Killzone : MonoBehaviour {
     [HideInInspector] public GameObject[] players;
-    public Lives lives;
+    [HideInInspector] public Lives lives;
     public float respawnTime = 1f;
 
     private bool respawning;

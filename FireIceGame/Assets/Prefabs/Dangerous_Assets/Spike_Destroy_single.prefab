@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 60186872575557396}
   - component: {fileID: 60616578671325136}
   - component: {fileID: 114005276662813566}
+  - component: {fileID: 114025338303371210}
   m_Layer: 0
   m_Name: Spike_Destroy_single
   m_TagString: Untagged
@@ -276,6 +277,20 @@ MonoBehaviour:
   iceTime_: 0
   iceBlockWidth_: 1.8
   meltSource_: {fileID: 0}
+--- !u!114 &114025338303371210
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1249019189098730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c90e908b78b71949b08d59dabd2e9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  players: []
+  lives: {fileID: 0}
+  respawnTime: 1
 --- !u!212 &212155260435826968
 SpriteRenderer:
   m_ObjectHideFlags: 1

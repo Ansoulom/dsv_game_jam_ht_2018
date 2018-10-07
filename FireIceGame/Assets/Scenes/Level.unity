@@ -400,6 +400,11 @@ Prefab:
       propertyPath: meltSource_
       value: 
       objectReference: {fileID: 723364280}
+    - target: {fileID: 212564353063633034, guid: b0f12c750d091fd4480babe347bf2f4e,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: -20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0f12c750d091fd4480babe347bf2f4e, type: 2}
   m_IsPrefabAsset: 0
@@ -1769,6 +1774,11 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 212155260435826968, guid: 6478175990ff5b247827c92461812bc3,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: -20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6478175990ff5b247827c92461812bc3, type: 2}
   m_IsPrefabAsset: 0
@@ -2189,6 +2199,11 @@ Prefab:
       propertyPath: meltSource_
       value: 
       objectReference: {fileID: 723364280}
+    - target: {fileID: 212564353063633034, guid: b0f12c750d091fd4480babe347bf2f4e,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: -20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0f12c750d091fd4480babe347bf2f4e, type: 2}
   m_IsPrefabAsset: 0
@@ -2447,7 +2462,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1591701411596084, guid: 02939f4e62bd2d94fa971303128300d9, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02939f4e62bd2d94fa971303128300d9, type: 2}
@@ -4161,6 +4176,21 @@ Prefab:
     - target: {fileID: 4393478404615150, guid: 6478175990ff5b247827c92461812bc3, type: 2}
       propertyPath: m_LocalScale.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212155260435826968, guid: 6478175990ff5b247827c92461812bc3,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212155260435826968, guid: 6478175990ff5b247827c92461812bc3,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212155260435826968, guid: 6478175990ff5b247827c92461812bc3,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: -20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6478175990ff5b247827c92461812bc3, type: 2}
@@ -7701,6 +7731,11 @@ Prefab:
       propertyPath: meltSource_
       value: 
       objectReference: {fileID: 723364280}
+    - target: {fileID: 212155260435826968, guid: 6478175990ff5b247827c92461812bc3,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: -20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6478175990ff5b247827c92461812bc3, type: 2}
   m_IsPrefabAsset: 0
@@ -10610,6 +10645,11 @@ Prefab:
     - target: {fileID: 4393478404615150, guid: 6478175990ff5b247827c92461812bc3, type: 2}
       propertyPath: m_LocalScale.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212155260435826968, guid: 6478175990ff5b247827c92461812bc3,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: -20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6478175990ff5b247827c92461812bc3, type: 2}
@@ -13793,6 +13833,11 @@ Prefab:
       propertyPath: meltSource_
       value: 
       objectReference: {fileID: 723364280}
+    - target: {fileID: 212155260435826968, guid: 6478175990ff5b247827c92461812bc3,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: -20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6478175990ff5b247827c92461812bc3, type: 2}
   m_IsPrefabAsset: 0
@@ -14645,6 +14690,11 @@ Prefab:
       propertyPath: audioSource_
       value: 
       objectReference: {fileID: 723364280}
+    - target: {fileID: 212564353063633034, guid: b0f12c750d091fd4480babe347bf2f4e,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: -20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0f12c750d091fd4480babe347bf2f4e, type: 2}
   m_IsPrefabAsset: 0
@@ -28913,6 +28963,11 @@ Prefab:
       propertyPath: meltSource_
       value: 
       objectReference: {fileID: 723364280}
+    - target: {fileID: 212155260435826968, guid: 6478175990ff5b247827c92461812bc3,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: -20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6478175990ff5b247827c92461812bc3, type: 2}
   m_IsPrefabAsset: 0
@@ -33400,6 +33455,11 @@ Prefab:
       propertyPath: meltSource_
       value: 
       objectReference: {fileID: 723364280}
+    - target: {fileID: 212155260435826968, guid: 6478175990ff5b247827c92461812bc3,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: -20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6478175990ff5b247827c92461812bc3, type: 2}
   m_IsPrefabAsset: 0
@@ -36508,6 +36568,11 @@ Prefab:
       propertyPath: meltSource_
       value: 
       objectReference: {fileID: 723364280}
+    - target: {fileID: 212155260435826968, guid: 6478175990ff5b247827c92461812bc3,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: -20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6478175990ff5b247827c92461812bc3, type: 2}
   m_IsPrefabAsset: 0
@@ -37813,6 +37878,11 @@ Prefab:
       propertyPath: meltSource_
       value: 
       objectReference: {fileID: 723364280}
+    - target: {fileID: 212155260435826968, guid: 6478175990ff5b247827c92461812bc3,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: -20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6478175990ff5b247827c92461812bc3, type: 2}
   m_IsPrefabAsset: 0

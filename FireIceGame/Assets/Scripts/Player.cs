@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Player : MonoBehaviour {
     public string horizontalLeft = "Horizontal_p1_left";
@@ -12,9 +13,12 @@ public class Player : MonoBehaviour {
     public float deceleration = 10f;
     public float jumpForce = 100f;
     public float aimDeadZone = 0.05f;
+    [SerializeField] private LayerMask groundCheckMask_;
     public Transform groundCheck;
     public Transform aim;
-    [SerializeField] private AudioSource jumpSource_;
+    [FormerlySerializedAs("jumpSource_")] [SerializeField] private AudioSource oneShotSource_;
+    [SerializeField] private AudioClip jumpClip_;
+    [SerializeField] private AudioClip landClip_;
 
     private Rigidbody2D rb2d;
     private float speed = 0;
@@ -60,11 +64,11 @@ public class Player : MonoBehaviour {
         }
 
         //Jump
-        grounded = Physics2D.OverlapPoint(groundCheck.position);
+        grounded = Physics2D.OverlapPoint(groundCheck.position, groundCheckMask_);
         if (Input.GetButtonDown(jump) && grounded && !airborne) {
             rb2d.AddForce(new Vector2(0, jumpForce));
             airborne = true;
-            jumpSource_.Play();
+            oneShotSource_.PlayOneShot(jumpClip_);
         }
 
         //Aim Rotation
@@ -77,8 +81,13 @@ public class Player : MonoBehaviour {
     }
 
     private void OnCollisionEnter2D (Collision2D collision) {
-        if (collision.gameObject.CompareTag("Ground")) {
+        if (!airborne)
+        {
+            return;
+        }
+        if (collision.gameObject.CompareTag("Ground") && Physics2D.OverlapPoint(groundCheck.position, groundCheckMask_)) {
             airborne = false;
+            oneShotSource_.PlayOneShot(landClip_);
         }
     }
 }

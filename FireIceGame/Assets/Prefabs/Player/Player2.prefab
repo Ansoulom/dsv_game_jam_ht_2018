@@ -228,7 +228,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1670893214429352}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.598, z: 0}
+  m_LocalPosition: {x: -1.1, y: -19.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4256595456189276}
@@ -666,7 +666,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b28001295fbe59f4482ee67f9c54eaea, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1075,9 +1075,14 @@ MonoBehaviour:
   deceleration: 20
   jumpForce: 800
   aimDeadZone: 0.05
+  groundCheckMask_:
+    serializedVersion: 2
+    m_Bits: 1
   groundCheck: {fileID: 4291084190223178}
   aim: {fileID: 4874042252095072}
-  jumpSource_: {fileID: 82047051338657344}
+  oneShotSource_: {fileID: 82047051338657344}
+  jumpClip_: {fileID: 8300000, guid: b28001295fbe59f4482ee67f9c54eaea, type: 3}
+  landClip_: {fileID: 8300000, guid: 9a6ddb0f58c8a13419f4524d252e2689, type: 3}
 --- !u!114 &114780840300216574
 MonoBehaviour:
   m_ObjectHideFlags: 1

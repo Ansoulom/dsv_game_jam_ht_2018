@@ -85,7 +85,7 @@ public class Player : MonoBehaviour {
         {
             return;
         }
-        if (collision.gameObject.CompareTag("Ground") && Physics2D.OverlapPoint(groundCheck.position, groundCheckMask_)) {
+        if (/*collision.gameObject.CompareTag("Ground") && */Physics2D.OverlapPoint(groundCheck.position, groundCheckMask_)) {
             airborne = false;
             oneShotSource_.PlayOneShot(landClip_);
         }

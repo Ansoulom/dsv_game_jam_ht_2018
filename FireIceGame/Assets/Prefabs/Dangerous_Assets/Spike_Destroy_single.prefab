@@ -272,10 +272,10 @@ MonoBehaviour:
   normal_: {x: -1, y: 0}
   iceBlockPrefab_: {fileID: 0}
   timeUntilMelt_: 5
-  meltTime_: 1
+  meltTime_: 0.5
   iceTime_: 0
   iceBlockWidth_: 1.8
-  audioSource_: {fileID: 0}
+  meltSource_: {fileID: 0}
 --- !u!212 &212155260435826968
 SpriteRenderer:
   m_ObjectHideFlags: 1

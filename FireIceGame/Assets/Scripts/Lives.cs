@@ -1,12 +1,13 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Lives : MonoBehaviour {
     public int startingLives = 3;
     public GameObject[] hearts;
+    [SerializeField] private AudioSource damageSource_;
     private int currentLives;
+    private bool lost_;
 
     private void Start () {
         currentLives = startingLives;
@@ -19,6 +20,7 @@ public class Lives : MonoBehaviour {
     }
 
     public void HurtPlayer () {
+        damageSource_.Play();
         currentLives--;
         switch (currentLives) {
             case 2:
@@ -34,6 +36,18 @@ public class Lives : MonoBehaviour {
     }
 
     public void GameOver () {
+        if (lost_)
+        {
+            return;
+        }
+
+        lost_ = true;
+        StartCoroutine(WaitGameOver());
+    }
+
+    private IEnumerator WaitGameOver()
+    {
+        yield return new WaitForSeconds(0.7f);
         SceneManager.LoadScene("Game Over");
     }
 }

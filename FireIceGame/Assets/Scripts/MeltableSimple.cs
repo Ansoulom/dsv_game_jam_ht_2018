@@ -8,6 +8,15 @@ public class MeltableSimple : IceSurface
         {
             if (meltTimer_.Update(Time.deltaTime))
             {
+                if (meltSource_)
+                {
+                    meltSource_.Play();
+                }
+                else
+                {
+                    Debug.LogWarning("Meltable object \"" + name + "\" doesn't have an audio source assigned!");
+                }
+
                 Destroy(gameObject);
             }
         }

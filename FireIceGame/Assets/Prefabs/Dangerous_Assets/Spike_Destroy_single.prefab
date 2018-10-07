@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4393478404615150}
   - component: {fileID: 212155260435826968}
   - component: {fileID: 60186872575557396}
-  - component: {fileID: 114522326401752886}
   - component: {fileID: 60616578671325136}
+  - component: {fileID: 114005276662813566}
   m_Layer: 0
   m_Name: Spike_Destroy_single
   m_TagString: Untagged
@@ -36,8 +36,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1249019189098730}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 38.04, y: -1.2, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.0417824, y: 1.2109499, z: 0.0234375}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -255,7 +255,7 @@ PolygonCollider2D:
       - {x: -0.078633316, y: -4.3605475}
       - {x: 0.030741693, y: -4.1281257}
       - {x: 0.1948042, y: -3.7863286}
---- !u!114 &114522326401752886
+--- !u!114 &114005276662813566
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -263,12 +263,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1249019189098730}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 318678aea99599749971d0ace992de9b, type: 3}
+  m_Script: {fileID: 11500000, guid: e8c8440b1145bf34a889dbef73c684c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   next_: {fileID: 0}
   previous_: {fileID: 0}
   head_: {fileID: 0}
+  normal_: {x: -1, y: 0}
+  iceBlockPrefab_: {fileID: 0}
+  timeUntilMelt_: 5
+  meltTime_: 0.5
+  iceTime_: 0
+  iceBlockWidth_: 1.8
+  meltSource_: {fileID: 0}
 --- !u!212 &212155260435826968
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 public class IceSurface : IceBlock
 {
@@ -10,7 +11,7 @@ public class IceSurface : IceBlock
     [SerializeField] private float meltTime_ = 1f;
     [SerializeField] private float iceTime_;
     [SerializeField] private float iceBlockWidth_ = 1.8f;
-    [SerializeField] private AudioSource audioSource_;
+    [FormerlySerializedAs("audioSource_")] [SerializeField] protected AudioSource meltSource_;
 
     private Timer waitTimer_;
     protected Timer meltTimer_;
@@ -109,8 +110,6 @@ public class IceSurface : IceBlock
         surface.Head = this;
         surface.Previous = tail;
         tail.Next = surface;
-
-        audioSource_.Play();
     }
 
     protected void RemoveBlock()
@@ -123,6 +122,10 @@ public class IceSurface : IceBlock
 
         tail.Previous.Next = null;
         Destroy(tail.gameObject);
+        if (meltSource_)
+        {
+            meltSource_.Play();
+        }
     }
 
 #endregion

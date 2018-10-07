@@ -8,7 +8,7 @@ public abstract class Beam : MonoBehaviour
 
     [SerializeField] private float range_;
     [SerializeField] private Transform beamParent_;
-    [SerializeField] private ParticleSystem particleSystem_;
+    [SerializeField] private Transform particleSystem_;
     [SerializeField] private string horizontalInput_;
     [SerializeField] private string verticalInput_;
     [SerializeField] private float inputThreshold_;
@@ -123,8 +123,11 @@ public abstract class Beam : MonoBehaviour
     private bool CheckBeam()
     {
         var shouldShoot = shooting_ && energy_ > 0f;
-        var emission = particleSystem_.emission;
-        emission.enabled = shouldShoot;
+        foreach (var particles in particleSystem_.GetComponentsInChildren<ParticleSystem>())
+        {
+            var emission = particles.emission;
+            emission.enabled = shouldShoot;
+        }
 
         return shouldShoot;
     }

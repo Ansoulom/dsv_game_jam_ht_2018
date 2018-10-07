@@ -14,6 +14,7 @@ public class Player : MonoBehaviour {
     public float aimDeadZone = 0.05f;
     public Transform groundCheck;
     public Transform aim;
+    [SerializeField] private AudioSource jumpSource_;
 
     private Rigidbody2D rb2d;
     private float speed = 0;
@@ -60,9 +61,10 @@ public class Player : MonoBehaviour {
 
         //Jump
         grounded = Physics2D.OverlapPoint(groundCheck.position);
-        if (Input.GetButton(jump) && grounded && !airborne) {
+        if (Input.GetButtonDown(jump) && grounded && !airborne) {
             rb2d.AddForce(new Vector2(0, jumpForce));
             airborne = true;
+            jumpSource_.Play();
         }
 
         //Aim Rotation

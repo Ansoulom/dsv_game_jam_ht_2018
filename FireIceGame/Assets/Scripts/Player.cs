@@ -14,6 +14,7 @@ public class Player : MonoBehaviour {
     public float jumpForce = 100f;
     public float aimDeadZone = 0.05f;
     [SerializeField] private LayerMask groundCheckMask_;
+    [SerializeField] private Vector2 groundCheckSize_ = Vector2.one;
     public Transform groundCheck;
     public Transform aim;
     [FormerlySerializedAs("jumpSource_")] [SerializeField] private AudioSource oneShotSource_;
@@ -64,8 +65,8 @@ public class Player : MonoBehaviour {
         }
 
         //Jump
-        grounded = Physics2D.OverlapPoint(groundCheck.position, groundCheckMask_);
-        if (Input.GetButtonDown(jump) && grounded && !airborne) {
+        grounded = IsGrounded();
+        if (Input.GetButtonDown(jump) && grounded/* && !airborne*/) {
             rb2d.AddForce(new Vector2(0, jumpForce));
             airborne = true;
             oneShotSource_.PlayOneShot(jumpClip_);
@@ -85,9 +86,14 @@ public class Player : MonoBehaviour {
         {
             return;
         }
-        if (/*collision.gameObject.CompareTag("Ground") && */Physics2D.OverlapPoint(groundCheck.position, groundCheckMask_)) {
+        if (IsGrounded()) {
             airborne = false;
             oneShotSource_.PlayOneShot(landClip_);
         }
+    }
+
+    private bool IsGrounded()
+    {
+        return Physics2D.OverlapBox(groundCheck.position, groundCheckSize_, groundCheckMask_);
     }
 }
